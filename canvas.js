@@ -6,18 +6,24 @@ let canvasContainer = document.getElementById('canvas-container');
 canvas.height = window.innerHeight;
 canvas.width = window.innerWidth;
 
+//Mouse object which stores position of cursor
 let mouse = {
   x: null,
   y: null
 };
 
+//Line properties of brush stroke
 ctx.lineWidth = 10;
+ctx.lineJoin = 'round';
+ctx.lineCap = 'round';
 
+//Gets mouse position on mouse move.
 canvas.addEventListener('mousemove', e => {
   mouse.x = e.clientX;
   mouse.y = e.clientY;
 });
 
+//When mousedown event is triggered, begins a line and adds an event listner to the canvas which calls the draw function when the mouse is held down.
 canvas.addEventListener('mousedown', () => {
   ctx.beginPath();
   ctx.moveTo(mouse.x, mouse.y);
@@ -25,6 +31,7 @@ canvas.addEventListener('mousedown', () => {
   canvas.addEventListener('mousemove', draw);
 });
 
+//Removes the mousemove listener which calls the draw function when the mouse is no longer being held down.
 canvas.addEventListener('mouseup', () => {
   canvas.removeEventListener('mousemove', draw);
 });
