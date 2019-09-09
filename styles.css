@@ -1,0 +1,20 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+}
+
+#toolbar-container {
+  background: #3768a2;
+}
+
+#canvas-container {
+  height: 80%;
+}
