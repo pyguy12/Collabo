@@ -27,7 +27,8 @@ canvas.addEventListener('mousemove', e => {
 canvas.addEventListener('mousedown', () => {
   ctx.beginPath();
   ctx.moveTo(mouse.x, mouse.y);
-
+  ctx.lineTo(mouse.x, mouse.y);
+  ctx.stroke();
   canvas.addEventListener('mousemove', draw);
 });
 
@@ -37,7 +38,7 @@ canvas.addEventListener('mouseup', () => {
 });
 
 //Function which handles drawing to the canvas, including erasing
-const draw = () => {
+let draw = () => {
   ctx.lineTo(mouse.x, mouse.y);
   ctx.stroke();
 };
@@ -48,7 +49,9 @@ const handleBrushClick = () => {
 };
 
 const handleEraserClick = () => {
-  console.log('eraser clicked');
+  draw = () => {
+    ctx.clearRect(mouse.y, mouse.x, ctx.lineWidth, ctx.lineHeight);
+  };
 };
 
 const handleClearCanvasClick = () => {
