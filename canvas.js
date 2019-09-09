@@ -12,10 +12,17 @@ let mouse = {
   y: null
 };
 
+let tools = {
+  brush: true,
+  eraser: false
+};
+
 //Line properties of brush stroke
+let strokeColor = '#000000';
 ctx.lineWidth = 10;
 ctx.lineJoin = 'round';
 ctx.lineCap = 'round';
+ctx.strokeStyle = strokeColor;
 
 //Gets mouse position on mouse move.
 canvas.addEventListener('mousemove', e => {
@@ -25,16 +32,30 @@ canvas.addEventListener('mousemove', e => {
 
 //When mousedown event is triggered, begins a line and adds an event listner to the canvas which calls the draw function when the mouse is held down.
 canvas.addEventListener('mousedown', () => {
-  ctx.beginPath();
-  ctx.moveTo(mouse.x, mouse.y);
-  ctx.lineTo(mouse.x, mouse.y);
-  ctx.stroke();
-  canvas.addEventListener('mousemove', draw);
+  if (tools.eraser) {
+    canvas.addEventListener('mousemove', erase);
+  } else if (tools.brush) {
+    ctx.beginPath();
+    ctx.moveTo(mouse.x, mouse.y);
+    ctx.lineTo(mouse.x, mouse.y);
+    ctx.stroke();
+    canvas.addEventListener('mousemove', draw);
+  }
 });
 
 //Removes the mousemove listener which calls the draw function when the mouse is no longer being held down.
 canvas.addEventListener('mouseup', () => {
   canvas.removeEventListener('mousemove', draw);
+});
+
+//Makes sure canvas scales to the size of the window
+window.addEventListener('resize', () => {
+  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+  ctx.lineWidth = 10;
+  ctx.lineJoin = 'round';
+  ctx.lineCap = 'round';
+  ctx.strokeStyle = strokeColor;
 });
 
 //Function which handles drawing to the canvas, including erasing
@@ -43,15 +64,19 @@ let draw = () => {
   ctx.stroke();
 };
 
+let erase = () => {
+  ctx.clearRect(mouse.x, mouse.y, ctx.lineWidth, ctx.lineWidth);
+};
+
 //Click handlers for buttons
 const handleBrushClick = () => {
-  console.log('brush clicked');
+  tools.brush = true;
+  tools.eraser = false;
 };
 
 const handleEraserClick = () => {
-  draw = () => {
-    ctx.clearRect(mouse.y, mouse.x, ctx.lineWidth, ctx.lineHeight);
-  };
+  tools.eraser = true;
+  tools.brush = false;
 };
 
 const handleClearCanvasClick = () => {
