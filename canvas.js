@@ -2,9 +2,9 @@ let canvas = document.getElementById('canvas');
 let ctx = canvas.getContext('2d');
 let canvasContainer = document.getElementById('canvas-container');
 
-//Sets canvas height and width to the height and width of the div containing the canvas element.
-canvas.height = canvasContainer.offsetHeight;
-canvas.width = canvasContainer.offsetWidth;
+//Sets canvas height and width to the height and width of the window.
+canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
 
 let mouse = {
   x: null,
@@ -29,6 +29,7 @@ canvas.addEventListener('mouseup', () => {
   canvas.removeEventListener('mousemove', draw);
 });
 
+//Function which handles drawing to the canvas, including erasing
 const draw = () => {
   ctx.lineTo(mouse.x, mouse.y);
   ctx.stroke();
@@ -41,4 +42,8 @@ const handleBrushClick = () => {
 
 const handleEraserClick = () => {
   console.log('eraser clicked');
+};
+
+const handleClearCanvasClick = () => {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 };

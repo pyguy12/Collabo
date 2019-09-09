@@ -12,15 +12,13 @@ body {
 }
 
 #toolbar-container {
+  position: absolute;
   padding: 25px 10px;
   background: #3768a2;
+  width: 100%;
 }
 
 .toolbar-button {
   margin: 0 10px;
   border: none;
-}
-
-#canvas-container {
-  height: 80%;
 }
