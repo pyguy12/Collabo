@@ -82,3 +82,7 @@ const handleEraserClick = () => {
 const handleClearCanvasClick = () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 };
+
+const handleColorClick = e => {
+  console.log(e);
+};
