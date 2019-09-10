@@ -12,10 +12,25 @@ let mouse = {
   y: null
 };
 
+//Object that keeps track of which tools are currently in use.
 let tools = {
   brush: true,
   eraser: false
 };
+
+let colors = {
+  black: document.getElementById('color-button-black'),
+  blue: document.getElementById('color-button-blue'),
+  red: document.getElementById('color-button-red'),
+  olive: document.getElementById('color-button-olive')
+};
+
+for (color in colors) {
+  colors[color].addEventListener(
+    'click',
+    () => (strokeColor = getComputedStyle(colors[color]).backgroundColor)
+  );
+}
 
 //Line properties of brush stroke
 let strokeColor = '#000000';
@@ -83,6 +98,6 @@ const handleClearCanvasClick = () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 };
 
-const handleColorClick = e => {
-  console.log(e);
+const handleColorClick = color => {
+  console.log(color);
 };

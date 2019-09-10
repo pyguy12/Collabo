@@ -29,9 +29,17 @@ body {
 }
 
 #color-button-black {
-  background: #000000;
+  background-color: #000000;
 }
 
 #color-button-blue {
-  background: blue;
+  background-color: #569dff;
+}
+
+#color-button-red {
+  background-color: #cc5647;
+}
+
+#color-button-olive {
+  background-color: #9ab33e;
 }
