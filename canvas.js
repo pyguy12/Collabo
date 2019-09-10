@@ -61,6 +61,7 @@ canvas.addEventListener('mousedown', () => {
 //Removes the mousemove listener which calls the draw function when the mouse is no longer being held down.
 canvas.addEventListener('mouseup', () => {
   canvas.removeEventListener('mousemove', draw);
+  canvas.removeEventListener('mousemove', erase);
 });
 
 //Makes sure canvas scales to the size of the window
