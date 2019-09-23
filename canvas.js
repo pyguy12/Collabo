@@ -18,6 +18,7 @@ let tools = {
   eraser: false
 };
 
+//Object which stores color-button elements
 let colors = {
   black: document.getElementById('color-button-black'),
   blue: document.getElementById('color-button-blue'),
@@ -25,19 +26,21 @@ let colors = {
   olive: document.getElementById('color-button-olive')
 };
 
-for (color in colors) {
-  colors[color].addEventListener(
-    'click',
-    () => (strokeColor = getComputedStyle(colors[color]).backgroundColor)
-  );
-}
+//Loops through colors object and adds an event listener to each button which assigns appropriate color to ctx.strokeStyle variable on window load
+window.onload = () => {
+  for (color in colors) {
+    let selectedColor = getComputedStyle(colors[color]).backgroundColor;
+    colors[color].addEventListener('click', () => {
+      ctx.strokeStyle = selectedColor;
+    });
+  }
+};
 
 //Line properties of brush stroke
-let strokeColor = '#000000';
 ctx.lineWidth = 10;
 ctx.lineJoin = 'round';
 ctx.lineCap = 'round';
-ctx.strokeStyle = strokeColor;
+ctx.strokeStyle = '#000000';
 
 //Gets mouse position on mouse move.
 canvas.addEventListener('mousemove', e => {
@@ -80,6 +83,7 @@ let draw = () => {
   ctx.stroke();
 };
 
+//Eraser functionality
 let erase = () => {
   ctx.clearRect(mouse.x, mouse.y, ctx.lineWidth, ctx.lineWidth);
 };
@@ -90,15 +94,13 @@ const handleBrushClick = () => {
   tools.eraser = false;
 };
 
+//Handles switching between tools
 const handleEraserClick = () => {
   tools.eraser = true;
   tools.brush = false;
 };
 
+//Clears canvas
 const handleClearCanvasClick = () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-};
-
-const handleColorClick = color => {
-  console.log(color);
 };
