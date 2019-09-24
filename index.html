@@ -5,13 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Collabo | Draw and Collaborate in Real Time</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./styles.css" />
+    <script
+      src="https://kit.fontawesome.com/201b80b256.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div id="toolbar-container">
-      <button class="toolbar-button" onClick="handleBrushClick()">Brush</button>
+      <h1>collabo</h1>
+      <button class="toolbar-button" onClick="handleBrushClick()">
+        <i class="fas fa-paint-brush"></i>
+      </button>
       <button class="toolbar-button" onClick="handleEraserClick()">
-        Eraser
+        <i class="fas fa-eraser"></i>
+      </button>
+      <button class="toolbar-button" onClick="handleClearCanvasClick()">
+        Clear Canvas
+      </button>
+      <button class="toolbar-button" onclick="TogetherJS(this); return false;">
+        Start/Stop Collaboration
       </button>
       <span id="color-container">
         <button id="color-button-black"></button>
@@ -19,11 +36,9 @@
         <button id="color-button-red"></button>
         <button id="color-button-olive"></button>
       </span>
-      <button class="toolbar-button" onClick="handleClearCanvasClick()">
-        Clear Canvas
-      </button>
     </div>
     <canvas id="canvas">Drawing Canvas</canvas>
     <script src="./canvas.js"></script>
+    <script src="https://togetherjs.com/togetherjs-min.js"></script>
   </body>
 </html>

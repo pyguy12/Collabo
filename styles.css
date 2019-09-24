@@ -9,23 +9,45 @@
 body {
   height: 100%;
   width: 100%;
+  font-family: 'Fredoka One', sans-serif;
 }
 
 #toolbar-container {
+  height: 40px;
+  display: flex;
+  justify-content: flex-start;
   position: absolute;
-  padding: 25px 10px;
-  background: #3768a2;
+  padding: 0 10px;
+  background: #1b1b1b;
   width: 100%;
 }
 
+#toolbar-container h1 {
+  color: white;
+  margin-right: 20px;
+}
+
 .toolbar-button {
-  margin: 0 10px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  color: white;
   border: none;
+  padding: 10px;
+}
+
+.toolbar-button:hover {
+  background: #156edb;
+}
+
+#color-container {
+  margin-left: 20px;
 }
 
 #color-container button {
   width: 40px;
   height: 40px;
+  border: 2px solid white;
 }
 
 #color-button-black {
