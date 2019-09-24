@@ -74,7 +74,7 @@ window.addEventListener('resize', () => {
   ctx.lineWidth = 10;
   ctx.lineJoin = 'round';
   ctx.lineCap = 'round';
-  ctx.strokeStyle = strokeColor;
+  ctx.strokeStyle = '#000000';
 });
 
 //Function which handles drawing to the canvas, including erasing

@@ -9,12 +9,13 @@
 body {
   height: 100%;
   width: 100%;
-  font-family: 'Fredoka One', sans-serif;
+  font-family: sans-serif;
 }
 
 #toolbar-container {
-  height: 40px;
+  height: 60px;
   display: flex;
+  align-items: center;
   justify-content: flex-start;
   position: absolute;
   padding: 0 10px;
@@ -28,15 +29,24 @@ body {
 }
 
 .toolbar-button {
-  width: 40px;
-  height: 40px;
+  width: 100px;
+  height: 60px;
   background: none;
   color: white;
   border: none;
   padding: 10px;
 }
 
+.toolbar-button:focus {
+  outline: none;
+}
+
+.toolbar-button p {
+  font-size: 12px;
+}
+
 .toolbar-button:hover {
+  cursor: pointer;
   background: #156edb;
 }
 

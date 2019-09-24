@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Collabo | Draw and Collaborate in Real Time</title>
-    <link
-      href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="./styles.css" />
     <script
       src="https://kit.fontawesome.com/201b80b256.js"
@@ -20,15 +16,19 @@
       <h1>collabo</h1>
       <button class="toolbar-button" onClick="handleBrushClick()">
         <i class="fas fa-paint-brush"></i>
+        <p>Brush</p>
       </button>
       <button class="toolbar-button" onClick="handleEraserClick()">
         <i class="fas fa-eraser"></i>
+        <p>Eraser</p>
       </button>
       <button class="toolbar-button" onClick="handleClearCanvasClick()">
-        Clear Canvas
+        <i class="fas fa-times"></i>
+        <p>Clear Canvas</p>
       </button>
       <button class="toolbar-button" onclick="TogetherJS(this); return false;">
-        Start/Stop Collaboration
+        <i class="fas fa-user-friends"></i>
+        <p>Collaborate</p>
       </button>
       <span id="color-container">
         <button id="color-button-black"></button>
